@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Access</title>
+    <script>
+        function checkAccess() {
+            // Generate today's MMDDYYYY key automatically
+            let d = new Date();
+            let month = String(d.getMonth() + 1).padStart(2, '0');
+            let day = String(d.getDate()).padStart(2, '0');
+            let year = d.getFullYear();
+            let todayKey = month + day + year;
+
+            let input = document.getElementById("pass").value;
+            if (input === todayKey) {
+                // Correct key redirects to EasyBib
+                window.location.href = "https://www.easybib.com";
+            } else {
+                alert("ACCESS DENIED: Invalid System ID");
+            }
+        }
+    </script>
+</head>
+<body style="background:#111; color:#0f0; font-family:monospace; text-align:center; padding-top:100px;">
+    <h2>SECURITY KERNEL: VERIFICATION REQUIRED</h2>
+    <input type="password" id="pass" placeholder="ENTER SYSTEM_ID" style="padding:10px;">
+    <button onclick="checkAccess()" style="padding:10px; cursor:pointer;">VERIFY</button>
+</body>
+</html>
