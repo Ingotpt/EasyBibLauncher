@@ -84,7 +84,7 @@
 </head>
 <body>
 
-    <div class="auth-card">
+    <div class="auth-card" id="card">
         <h2>Kernel Verification</h2>
         <input type="password" id="pass" placeholder="System ID">
         <button onclick="checkAccess()">Verify Identity</button>
@@ -100,8 +100,13 @@
 
             let input = document.getElementById("pass").value;
             if (input === todayKey) {
-                // Testing redirect to YouTube Shorts
-                window.location.href = "https://www.youtube.com/shorts/";
+                // Update text to show it's working
+                document.getElementById("card").innerHTML = "<h2>ACCESS GRANTED</h2><p>Redirecting to Resource...</p>";
+                
+                // Redirecting to EasyBib
+                setTimeout(function() {
+                    window.location.href = "https://www.easybib.com";
+                }, 1000); 
             } else {
                 alert("AUTH_ERROR: Invalid Token");
             }
